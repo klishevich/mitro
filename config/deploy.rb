@@ -1,5 +1,5 @@
 # Change these
-server '139.162.190.203', port: 80, roles: [:web, :app, :db], primary: true
+server '139.162.190.203', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:klishevich/mitro.git'
 set :application,     'mitro'
