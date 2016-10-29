@@ -46,7 +46,7 @@
     <!-- Swiper-->
     <div data-height="100vh" data-min-height="100vh" data-slide-effect="fade" class="swiper-container swiper-slider">
       <div class="swiper-wrapper">
-        <div data-slide-bg="images/swiper-1.jpg" class="swiper-slide">
+        <div data-slide-bg="<%= asset_path 'swiper-1.jpg' %>" class="swiper-slide">
           <div class="swiper-slide-caption">
             <div class="shell">
               <div class="range">
@@ -59,7 +59,7 @@
             </div>
           </div>
         </div>
-        <div data-slide-bg="images/swiper-2.jpg" class="swiper-slide">
+        <div data-slide-bg="<%= asset_path 'swiper-2.jpg' %>" class="swiper-slide">
           <div class="swiper-slide-caption">
             <div class="shell">
               <div class="range">
@@ -72,7 +72,7 @@
             </div>
           </div>
         </div>
-        <div data-slide-bg="images/swiper-3.jpg" class="swiper-slide">
+        <div data-slide-bg="<%= asset_path 'swiper-3.jpg' %>" class="swiper-slide">
           <div class="swiper-slide-caption">
             <div class="shell">
               <div class="range">
@@ -371,4 +371,4 @@
 </div>
 <!-- Java script-->
 <script src="js/core.min.js"></script>
-<script src="js/script.js"></script>
+<%= javascript_include_tag 'script' %>
