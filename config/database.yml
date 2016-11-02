@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  database: potok_dev
+  database: mitro_dev
   username: first
   password: asdfg
   host: localhost

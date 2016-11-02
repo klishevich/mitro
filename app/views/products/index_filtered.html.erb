@@ -1,0 +1,10 @@
+<div class='container'>
+  <h2>Список товаров</h2>
+  <div>
+    <% @products.each do |prod| %>
+      <div>
+        <%= prod.name %>
+      </div>
+    <% end %>
+  </div>
+</div>

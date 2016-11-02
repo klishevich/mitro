@@ -10,39 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102051326) do
+ActiveRecord::Schema.define(version: 20161102120430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "clients", force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "credit_payments", force: :cascade do |t|
-    t.integer  "credit_id"
-    t.integer  "month"
-    t.decimal  "amount",      precision: 15, scale: 2
-    t.boolean  "is_fine",                              default: false
-    t.integer  "fine_months"
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
-    t.index ["credit_id"], name: "index_credit_payments_on_credit_id", using: :btree
-  end
-
-  create_table "credits", force: :cascade do |t|
-    t.integer  "client_id"
-    t.decimal  "amount",               precision: 15, scale: 2
-    t.integer  "credit_period_months"
-    t.decimal  "rate",                 precision: 5,  scale: 2
-    t.integer  "period_months"
-    t.decimal  "fine_rate",            precision: 5,  scale: 2
-    t.decimal  "amount_left",          precision: 15, scale: 2
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
-    t.index ["client_id"], name: "index_credits_on_client_id", using: :btree
+    t.text     "description"
+    t.decimal  "price"
+    t.string   "volume"
+    t.boolean  "is_delivery"
+    t.boolean  "is_sibirskaya"
+    t.boolean  "is_volochaevskaya"
+    t.boolean  "is_foodtrack"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,6 +45,4 @@ ActiveRecord::Schema.define(version: 20161102051326) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "credit_payments", "credits"
-  add_foreign_key "credits", "clients"
 end
