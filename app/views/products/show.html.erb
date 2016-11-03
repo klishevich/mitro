@@ -1,0 +1,18 @@
+<% provide(:title, @product.name) %>
+<% provide(:keywords, @product.name)%>
+<% provide(:description, @product.name) %>
+<div class="bgk_container">
+  <div class="row">
+    <div class="col-md-12">
+    	<% if true %>
+        <div class="form-group">
+          <a class="btn btn-default" href="/admin">В админку</a>
+          <%= link_to "Список товаров", products_index_adm_path, class: "btn btn-default" %>
+    	    <%= link_to "Редактировать", edit_product_path(@product), class: "btn btn-primary" %>
+        </div>
+    	<% end %>
+    	<h1><%= @product.name %></h1>
+      <p><%= @product.description %></p>
+    </div>
+  </div>
+</div>

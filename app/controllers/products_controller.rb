@@ -25,18 +25,16 @@ class ProductsController < ApplicationController
     render 'index_filtered'
   end
 
-  def 
-
   def show
     @product = Product.find(params[:id])  
   end
 
   # ADMIN PAGES
-  # def index_adm
-  #   @products = Product.order(category_id: :asc, order: :asc)
-  #   # self.index
-  #   # render template: "products/index_adm" 
-  # end
+  def index_adm
+    @products = Product.order(id: :desc)
+    # self.index
+    # render template: "products/index_adm" 
+  end
 
   def new
     @product = Product.new

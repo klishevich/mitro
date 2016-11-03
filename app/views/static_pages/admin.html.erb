@@ -1,1 +1,7 @@
-<h1>Админка</h1>
+<% provide(:breadcrumb, "Админка") %>
+<div class="container">
+  <h2>Админка</h2>
+  <ol>
+	<li><%= link_to "Список товаров", products_index_adm_path %></li>
+  </ol>
+</div>

@@ -32,6 +32,8 @@ gem 'redis', '~> 3.0'
 gem 'pg', '~> 0.18.4'
 # gem 'oauth2'
 gem 'devise'
+gem "figaro"
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
