@@ -217,7 +217,10 @@ en:
         is_foodtrack: "Фудтрак"
         created_at: "Дата создания"
         updated_at: "Дата изменения"
+      user:
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
   page_saved_successfuly: "Страница сохранена"
-  default_title: "Балтгеоком"
   product_saved_successfuly: "Информация по товару сохранена"
   saved_successfuly: "Информация сохранена"
+  you_are_not_admin: "Вы не админ для просмотра этой страницы"
