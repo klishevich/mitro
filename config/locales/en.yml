@@ -217,6 +217,7 @@ en:
         is_foodtrack: "Фудтрак"
         created_at: "Дата создания"
         updated_at: "Дата изменения"
+        img: "Изображение"
       user:
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"

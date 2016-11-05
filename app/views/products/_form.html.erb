@@ -15,7 +15,7 @@
 		  <%= f.input :is_foodtrack %>
 		  <%= render 'edit_productimg', f: f %>
 		  <div class="form-group">
-		    <%= f.button :submit, value: "Сохранить", class: "btn btn-primary" %>
+		    <%= button_tag "Сохранить", data: { disable_with: "Идет сохранение.." }, class: "btn btn-primary" %>
 		  </div>
 		<% end %>
 	</div>
