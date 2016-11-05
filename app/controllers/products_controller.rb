@@ -69,6 +69,6 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :description, :price, :volume, :is_delivery, :is_sibirskaya,
-      :is_volochaevskaya, :is_foodtrack)
+      :is_volochaevskaya, :is_foodtrack, :img, :img_cache, :remove_img)
   end  
 end
