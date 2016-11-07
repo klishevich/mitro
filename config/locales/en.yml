@@ -221,7 +221,9 @@ en:
       user:
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
+        remember_me: "Запомнить меня"
   page_saved_successfuly: "Страница сохранена"
   product_saved_successfuly: "Информация по товару сохранена"
   saved_successfuly: "Информация сохранена"
   you_are_not_admin: "Вы не админ для просмотра этой страницы"
+  remember_me: "Запомнить меня"

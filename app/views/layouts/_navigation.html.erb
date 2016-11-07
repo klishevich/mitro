@@ -29,7 +29,19 @@
           </li>
           <li><a href='/delivery'>доставка</a></li>
           <li><a href='#'>события</a></li>
-          <li><a href='/users/sign_in'>ЛК</a></li>
+          <% if user_signed_in? %>
+            <li><a href='#'>ЛК меню</a>
+              <ul class="rd-navbar-dropdown">
+                <% if current_user.is_admin? %>
+                  <li><%= link_to 'Админка', admin_path %></li>
+                  <li><%= link_to 'Товары', products_index_adm_path %></li>
+                <% end %>
+                <li><%= link_to 'Выход', destroy_user_session_path, method: 'delete' %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li><a href='/users/sign_in'>ЛК вход</a></li>
+          <% end %>
         </ul>
       </div>
     </div>

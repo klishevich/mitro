@@ -105,6 +105,7 @@ SimpleForm.setup do |config|
   # You can define the default class to be used on forms. Can be overriden
   # with `html: { :class }`. Defaulting to none.
   # config.default_form_class = nil
+  config.form_class = 'simple_form form-horizontal'
 
   # You can define which elements should obtain additional classes
   # config.generate_additional_classes_for = [:wrapper, :label, :input]
