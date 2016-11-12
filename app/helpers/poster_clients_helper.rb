@@ -1,0 +1,2 @@
+module PosterClientsHelper
+end
