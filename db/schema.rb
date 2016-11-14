@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20161112135247) do
     t.integer  "user_id"
     t.boolean  "is_active",               default: false
     t.integer  "poster_client_id"
+    t.string   "client_name",                             null: false
     t.integer  "client_sex",              default: 0
-    t.string   "phone"
+    t.string   "phone",                                   null: false
     t.string   "card_number"
     t.integer  "client_groups_id_client"
     t.string   "country"

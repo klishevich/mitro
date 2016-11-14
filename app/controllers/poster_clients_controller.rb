@@ -8,14 +8,23 @@ class PosterClientsController < ApplicationController
 
   def new
   	@user = current_user
-    @poster_client = @user&.build_poster_client
+    if (@user&.poster_client)
+      @poster_client = @user.poster_client
+      redirect_to edit_poster_client_path @poster_client
+    else
+      @poster_client = @user&.build_poster_client
+      # default values
+      @poster_client.client_sex = 0
+      @poster_client.country = 'Russia'
+      @poster_client.city = 'Moscow'
+    end
   end
 
   def create
   	@user = current_user
     @poster_client = @user&.build_poster_client(poster_client_params)
     if @poster_client.save
-      flash[:notice] = t(:saved_successfuly)
+      flash[:notice] = t(:poster_card_odered_successfuly)
       redirect_to edit_poster_client_path @poster_client
     else
       render 'new'
@@ -29,10 +38,10 @@ class PosterClientsController < ApplicationController
 
   def update
   	@user = current_user
-  	@poster_client = @user.&poster_client
+  	@poster_client = @user&.poster_client
     if @poster_client.update_attributes(poster_client_params)
     	flash[:notice] = t(:saved_successfuly)
-    	redirect_to edit_product_path @product
+    	redirect_to edit_poster_client_path @poster_client
     else
     	render 'edit'
     end
@@ -46,6 +55,6 @@ class PosterClientsController < ApplicationController
   private
 
   def poster_client_params
-    params.require(:poster_client).permit(:client_sex, :phone, :country, :city, :birthday )
+    params.require(:poster_client).permit(:client_name, :client_sex, :phone, :country, :city, :birthday )
   end 
 end

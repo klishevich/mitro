@@ -1,0 +1,16 @@
+<div>
+	<div class="form-cont">
+		<%= simple_form_for(@poster_client, html: { class: 'form-horizontal' }) do |f| %>
+		  <%= f.input :client_name %>
+		  <%= f.input :client_sex, collection: [[t(:none), 0], [t(:male), 1], [t(:female), 2]], label_method: :first, value_method: :last %> 
+		  <%= f.input :phone %>
+		  <%= f.input :country %>
+		  <%= f.input :city %>
+		  <%= f.input :birthday %>
+		  <div class="form-actions">
+		    <%= button_tag "Сохранить", data: { disable_with: "Идет сохранение.." }, class: "btn btn-primary" %>
+		    <%= link_to "Отменить", '/' , class: "btn btn-default" %>
+		  </div>
+		<% end %>
+	</div>
+</div>
