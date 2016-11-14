@@ -1,5 +1,7 @@
 <head>
-    <title>Mitro</title>
+    <title><%= content_for?(:title) ? yield(:title) : t(:default_title) %></title>  
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : t(:default_title) %>">
+    <meta name="keywords" content="<%= content_for?(:keywords) ? yield(:keywords) : t(:default_title) %>">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
