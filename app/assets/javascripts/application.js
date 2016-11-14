@@ -10,8 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require moment-with-locales.min
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-// commented require bootstrap.min
+//= require_tree .
+//= require bootstrap.min
+//= require bootstrap-datepicker
 //= require my

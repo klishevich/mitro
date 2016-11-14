@@ -6,7 +6,7 @@
 		  <%= f.input :phone %>
 		  <%= f.input :country %>
 		  <%= f.input :city %>
-		  <%= f.input :birthday %>
+		  <%= f.input :birthday, :as => :date_picker %>
 		  <div class="form-actions">
 		    <%= button_tag "Сохранить", data: { disable_with: "Идет сохранение.." }, class: "btn btn-primary" %>
 		    <%= link_to "Отменить", '/' , class: "btn btn-default" %>
@@ -14,3 +14,10 @@
 		<% end %>
 	</div>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.date_picker_input').datepicker({
+    	language: 'ru'
+    });
+  });
+</script>

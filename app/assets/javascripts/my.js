@@ -1,9 +1,13 @@
-// $('li > a').click(function() {
-// 	console.log('test');
-//     $('li').removeClass();
-//     $(this).parent().addClass('active');
-// });
-// $(document).ready(function () {
-//   var url = window.location.href;
-//   console.log('doc ready', url );
-// });
+$(document).ready(function(){
+	$.fn.datepicker.dates['ru'] = {
+		days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+		daysShort: ["Вск", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Суб"],
+		daysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+		months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+		monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+		today: "Сегодня",
+		clear: "Очистить",
+		format: "dd.mm.yyyy",
+		weekStart: 1
+	};
+  });
