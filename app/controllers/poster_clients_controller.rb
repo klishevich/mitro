@@ -1,16 +1,16 @@
 class PosterClientsController < ApplicationController
   # before_filter :authenticate_admin, only: [:index_adm, :new, :create, :edit, :update]
 
-  # def show
-  # 	@user = current_user
-  #   @poster_client = @user.poster_client
-  # end
+  def poster_info
+  	@user = current_user
+    @poster_client = @user&.poster_client
+  end
 
   def new
   	@user = current_user
     if (@user&.poster_client)
       @poster_client = @user.poster_client
-      redirect_to edit_poster_client_path @poster_client
+      redirect_to poster_info_path
     else
       @poster_client = @user&.build_poster_client
       # default values
@@ -25,7 +25,7 @@ class PosterClientsController < ApplicationController
     @poster_client = @user&.build_poster_client(poster_client_params)
     if @poster_client.save
       flash[:notice] = t(:poster_card_odered_successfuly)
-      redirect_to edit_poster_client_path @poster_client
+      redirect_to poster_info_path
     else
       render 'new'
     end  
@@ -41,15 +41,10 @@ class PosterClientsController < ApplicationController
   	@poster_client = @user&.poster_client
     if @poster_client.update_attributes(poster_client_params)
     	flash[:notice] = t(:saved_successfuly)
-    	redirect_to edit_poster_client_path @poster_client
+    	redirect_to poster_info_path
     else
     	render 'edit'
     end
-  end 
-
-  def poster_info
-  	@user = current_user
-    @poster_client = @user&.poster_client
   end
 
   private

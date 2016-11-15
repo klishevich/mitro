@@ -1,2 +1,19 @@
-<h1>PosterClients#poster_info</h1>
-<p>Find me in app/views/poster_clients/poster_info.html.erb</p>
+<% provide(:breadcrumb, "ЛК / Просмотр информации по бонусной карте") %>
+<div class="container">
+	<h2>Просмотр информации по бонусной карте</h2>
+	<div>
+		<div class="form-cont">
+			<%= simple_form_for(@poster_client, html: { class: 'form-horizontal' }) do |f| %>
+			<%= f.input :client_name, disabled: true %>
+			<%= f.input :client_sex, collection: [[t(:none), 0], [t(:male), 1], [t(:female), 2]], label_method: :first, value_method: :last, disabled: true %> 
+			<%= f.input :phone, disabled: true %>
+			<%= f.input :country, disabled: true %>
+			<%= f.input :city, disabled: true %>
+			<%= f.input :birthday, :as => :date_picker, disabled: true %>
+			<div class="form-actions">
+				<%= link_to "Редактировать", edit_poster_client_path(@poster_client), class: "btn btn-default" %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
