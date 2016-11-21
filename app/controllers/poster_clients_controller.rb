@@ -22,8 +22,13 @@ class PosterClientsController < ApplicationController
 
   def create
   	@user = current_user
+    Rails.logger.info("1) PosterClientsController start create")
     @poster_client = @user&.build_poster_client(poster_client_params)
-    if @poster_client.save
+    if @poster_client.valid?
+      Rails.logger.info("2) PosterClientsController valid")
+      @poster_client.poster_clients_add
+      @poster_client.save
+      Rails.logger.info("5) PosterClientsController finish")
       flash[:notice] = t(:poster_card_odered_successfuly)
       redirect_to poster_info_path
     else
