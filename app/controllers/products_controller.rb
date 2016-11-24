@@ -7,19 +7,19 @@ class ProductsController < ApplicationController
   end
 
   def index_main
-    @products = Product.where("is_main = 't'")
+    @products = Product.where("is_main = 't'").order(:id)
     @menu_name = t(:menu_name_main)
     render 'index_filtered'
   end
   
   def index_delivery
-  	@products = Product.where("is_delivery = 't'")
+  	@products = Product.where("is_delivery = 't'").order(:id)
     @menu_name = t(:menu_name_delivery)
     render 'index_filtered'
   end
 
   def index_foodtrack
-  	@products = Product.where("is_foodtrack = 't'")
+  	@products = Product.where("is_foodtrack = 't'").order(:id)
     @menu_name = t(:menu_name_foodtrack)
     render 'index_filtered'
   end
