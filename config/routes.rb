@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   get '/admin', to: 'static_pages#admin'
 
   resources :products
+  get '/main', to: 'products#index_main'
   get '/delivery', to: 'products#index_delivery'
-  get '/sibirskaya', to: 'products#index_sibirskaya'
-  get '/volochaevskaya', to: 'products#index_volochaevskaya'
   get '/foodtrack', to: 'products#index_foodtrack'
   get '/products_index_adm', to: 'products#index_adm'
 

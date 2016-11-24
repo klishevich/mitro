@@ -22,6 +22,7 @@
             <td>
               <div class="btn-cont"><%= link_to "Изменить", edit_product_path(prod), class: "btn-sm btn-primary" %></div>
               <div class="btn-cont"><%= link_to "Просмотр", product_path(prod), class: "btn-sm btn-primary" %></div>
+              <div class="btn-cont"><%= link_to "Удалить", product_path(prod), class: "btn-sm btn-danger",method: "delete" %></div>
             <td><%= prod.name %></td>
             <td><%= prod.price %></td>
             <td><%= prod.is_delivery %></td>
