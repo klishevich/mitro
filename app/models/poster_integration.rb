@@ -1,4 +1,6 @@
 class PosterIntegration
+  attr_accessor :client_info
+
   def getWorkshops
     Rails.logger.info("start getWorkshops")
     url = 'https://busation.joinposter.com/api/menu.getWorkshops?format=json&token=' + token
@@ -31,6 +33,16 @@ class PosterIntegration
     Rails.logger.info("3.1) PosterIntegration response_body: #{response_body}")
 
     return response_body['response']
+  end
+
+  def get_client_info(poster_client_id)
+    Rails.logger.info("start get_client_info")
+    url = 'https://busation.joinposter.com/api/clients.getClientInfo?format=json&token=' + token + 
+      '&client_id=' + poster_client_id.to_s
+    Rails.logger.info("url #{url}")
+    res = URI.parse(url).read
+    @client_info = JSON.parse(res)
+    Rails.logger.info("@client_info #{@client_info}")
   end
 
   private

@@ -1,0 +1,11 @@
+<% provide(:breadcrumb, "Админка / Интеграция с Poster") %>
+<h2>Админка интеграции с Poster</h2>
+<div>
+  <div class = "header-button">
+    <a class="btn btn-default" href="/admin">В админку</a>
+  </div>
+  <h4>Обновить бонусы для всех клиентов</h4>
+  <%= form_tag(update_clients_bonus_path, method: 'post') do %>
+    <p><%= submit_tag('Обновить', class: 'btn btn-primary') %></p>
+  <% end %>
+</div>
