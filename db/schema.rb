@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161124035703) do
+ActiveRecord::Schema.define(version: 20161128045758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,16 +19,19 @@ ActiveRecord::Schema.define(version: 20161124035703) do
     t.integer  "user_id"
     t.boolean  "is_active",               default: false
     t.integer  "poster_client_id"
-    t.string   "client_name",                             null: false
+    t.string   "client_name",                                             null: false
     t.integer  "client_sex",              default: 0
-    t.string   "phone",                                   null: false
+    t.string   "phone",                                                   null: false
     t.string   "card_number"
     t.integer  "client_groups_id_client"
     t.string   "country"
     t.string   "city"
     t.date     "birthday"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
+    t.boolean  "has_bonus",               default: false
+    t.text     "bonus_text"
+    t.datetime "bonus_updated_at",        default: '2000-01-01 00:00:00'
     t.index ["user_id"], name: "index_poster_clients_on_user_id", using: :btree
   end
 

@@ -10,6 +10,7 @@ class PosterClient < ApplicationRecord
   		self.country, self.city, self.user.email, self.birthday)
   	Rails.logger.info("4) class PosterClient res #{res}")
   	self.poster_client_id = res
+    self.is_active = true
   end
 
 end

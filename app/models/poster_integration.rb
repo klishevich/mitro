@@ -1,5 +1,9 @@
 class PosterIntegration
-  attr_accessor :client_info
+  attr_accessor :poster_client_id, :client_info
+
+  def initialize(poster_client_id)
+     @poster_client_id = poster_client_id
+  end
 
   def getWorkshops
     Rails.logger.info("start getWorkshops")
@@ -35,14 +39,31 @@ class PosterIntegration
     return response_body['response']
   end
 
-  def get_client_info(poster_client_id)
+  def get_client_info
     Rails.logger.info("start get_client_info")
     url = 'https://busation.joinposter.com/api/clients.getClientInfo?format=json&token=' + token + 
-      '&client_id=' + poster_client_id.to_s
+      '&client_id=' + @poster_client_id.to_s
     Rails.logger.info("url #{url}")
     res = URI.parse(url).read
     @client_info = JSON.parse(res)
     Rails.logger.info("@client_info #{@client_info}")
+  end
+
+  def persist_client_bonus
+    now_date = Time.now
+    if client_info['response'].count > 0
+      pc = PosterClient.where(poster_client_id: poster_client_id).first
+      if client_info['response'][0]['prize_products'].count > 0
+        pc.has_bonus = true
+        pc.bonus_text = 'has bonus, hurray!'
+        pc.bonus_updated_at = now_date
+      else
+        pc.has_bonus = false
+        pc.bonus_text = 'no bonus'
+        pc.bonus_updated_at = now_date
+      end
+      pc.save
+    end
   end
 
   private
