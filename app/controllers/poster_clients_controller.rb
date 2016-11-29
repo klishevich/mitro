@@ -6,6 +6,11 @@ class PosterClientsController < ApplicationController
     @poster_client = @user&.poster_client
   end
 
+  def bonus_info
+    @user = current_user
+    @poster_client = @user&.poster_client
+  end
+
   def new
   	@user = current_user
     if (@user&.poster_client)

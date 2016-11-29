@@ -1,0 +1,11 @@
+<% provide(:breadcrumb, "ЛК / Просмотр бонусов") %>
+<h2>Просмотр накопленных бонусов</h2>
+<div>
+	<% if @poster_client.has_bonus %>
+		<p style="color: green;"><b>Имеются бонусы!</b></p>
+		<%= @poster_client.bonus_text %>
+	<% else %>
+		<p><b>Пока бонусов нет, покупайте больше и они появяться :)</b></p>
+	<% end %>
+</div>
+

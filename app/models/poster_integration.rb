@@ -53,9 +53,11 @@ class PosterIntegration
     now_date = Time.now
     if client_info['response'].count > 0
       pc = PosterClient.where(poster_client_id: poster_client_id).first
-      if client_info['response'][0]['prize_products'].count > 0
+      prize_products = client_info['response'][0]['prize_products']
+      Logger.new('log/resque.log').info("PosterIntegration prize_products.to_s #{prize_products.to_s}")
+      if prize_products.count > 0
         pc.has_bonus = true
-        pc.bonus_text = 'has bonus, hurray!'
+        pc.bonus_text = 'has bonus, hurray! ' + prize_products.to_s
         pc.bonus_updated_at = now_date
       else
         pc.has_bonus = false
