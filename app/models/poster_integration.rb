@@ -1,10 +1,11 @@
 class PosterIntegration
   attr_accessor :poster_client_id, :client_info
 
-  def initialize(poster_client_id)
-     @poster_client_id = poster_client_id
-  end
+  # def initialize(poster_client_id)
+  #   @poster_client_id = poster_client_id
+  # end
 
+  # TEST METHOD
   def getWorkshops
     Rails.logger.info("start getWorkshops")
     url = 'https://busation.joinposter.com/api/menu.getWorkshops?format=json&token=' + token
@@ -12,7 +13,7 @@ class PosterIntegration
     uri = URI.parse(url).read
   end
 
-  def clients_addClient(client_name, client_sex, phone, country, city, email, birthday)
+  def add_client(client_name, client_sex, phone, country, city, email, birthday)
     my_url = 'https://busation.joinposter.com/api/clients.addClient?format=json&token=' + token
     uri = URI(my_url)
     req = Net::HTTP::Post.new(uri)

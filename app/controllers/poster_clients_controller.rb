@@ -20,8 +20,8 @@ class PosterClientsController < ApplicationController
       @poster_client = @user&.build_poster_client
       # default values
       @poster_client.client_sex = 0
-      @poster_client.country = 'Russia'
-      @poster_client.city = 'Moscow'
+      @poster_client.country = t(:default_country)
+      @poster_client.city = t(:default_city)
     end
   end
 

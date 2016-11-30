@@ -6,7 +6,7 @@ class PosterClient < ApplicationRecord
   def poster_clients_add
   	Rails.logger.info("3) class PosterClient poster_clients_add")
   	poster_int = PosterIntegration.new
-  	res = poster_int.clients_addClient(self.client_name, self.client_sex, self.phone, 
+  	res = poster_int.add_client(self.client_name, self.client_sex, self.phone, 
   		self.country, self.city, self.user.email, self.birthday)
   	Rails.logger.info("4) class PosterClient res #{res}")
   	self.poster_client_id = res
