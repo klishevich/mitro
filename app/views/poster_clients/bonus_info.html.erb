@@ -1,6 +1,9 @@
 <% provide(:breadcrumb, "ЛК / Просмотр бонусов") %>
 <h2>Просмотр накопленных бонусов</h2>
 <div>
+	<p><b>Дата последнего обновления бонусов (GMT):</b> 
+		<%= @poster_client.bonus_updated_at.strftime("%d/%m/%Y %H:%M") %>
+	</p>
 	<% if @poster_client.has_bonus %>
 		<p style="color: green;"><b>Имеются бонусы!</b></p>
 		<%= @poster_client.bonus_text %>
