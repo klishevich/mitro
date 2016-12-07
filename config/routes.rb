@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'static_pages#home'
   get '/admin', to: 'static_pages#admin'
+  get '/test_payment', to: 'static_pages#test_payment'
 
   resources :products
   get '/main', to: 'products#index_main'
@@ -17,5 +18,8 @@ Rails.application.routes.draw do
 
   resources :poster_admin, only: [:index]
   post '/update_clients_bonus', to: 'poster_admin#update_clients_bonus'
+
+  # Yandex.Kassa
+  post '/order_check', to: 'yandex_kassa#order_check'
 
 end

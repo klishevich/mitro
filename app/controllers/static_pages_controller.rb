@@ -8,4 +8,7 @@ class StaticPagesController < ApplicationController
   def admin
   end
 
+  def test_payment
+  end
+
 end

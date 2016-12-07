@@ -1,0 +1,9 @@
+<% provide(:breadcrumb, "Test Payment") %>
+<h2>Страница для тестирования интеграции с Яндекс.Кассой</h2>
+<form action="https://demomoney.yandex.ru/eshop.xml" method="POST">
+<input name="shopId" value="88596" type="hidden">
+<input name="scid" value="545734" type="hidden">
+<input name="customerNumber" value="Покупатель N1"><!-- Идентификатор вашего покупателя -->
+<input name="sum" value="10.00"><!-- Сумма покупки (руб.) -->
+<input type="submit" value="Оплатить">
+</form>
