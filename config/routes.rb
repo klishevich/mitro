@@ -21,5 +21,6 @@ Rails.application.routes.draw do
 
   # Yandex.Kassa
   post '/order_check', to: 'yandex_kassa#order_check'
+  get '/order_fail', to: 'yandex_kassa#order_fail'
 
 end
