@@ -13,7 +13,7 @@ class YandexKassaController < ApplicationController
     shopId = params[:shopId]
     invoiceId = params[:invoiceId]
     customerNumber = params[:customerNumber]
-    MD5 = params[:MD5]
+    vMD5 = params[:MD5]
    	Rails.logger.info("action #{action}")
     Rails.logger.info("orderSumAmount #{orderSumAmount}")
     Rails.logger.info("orderSumCurrencyPaycash #{orderSumCurrencyPaycash}")
@@ -21,7 +21,7 @@ class YandexKassaController < ApplicationController
     Rails.logger.info("shopId #{shopId}")
     Rails.logger.info("invoiceId #{invoiceId}")
     Rails.logger.info("customerNumber #{customerNumber}")
-    Rails.logger.info("MD5 #{MD5}")
+    Rails.logger.info("MD5 #{vMD5}")
     # !!! make md5 check
     # MD5(action;MY_ORDER_SUM;orderSumCurrencyPaycash;orderSumBankPaycash;shopId;invoiceId;customerNumber;shopPassword);
     now_date = Time.now
@@ -46,7 +46,7 @@ class YandexKassaController < ApplicationController
     shopId = params[:shopId]
     invoiceId = params[:invoiceId]
     customerNumber = params[:customerNumber]
-    MD5 = params[:MD5]
+    vMD5 = params[:MD5]
     # !!! make md5 check
     Rails.logger.info("action #{action}")
     Rails.logger.info("orderSumAmount #{orderSumAmount}")
@@ -55,7 +55,7 @@ class YandexKassaController < ApplicationController
     Rails.logger.info("shopId #{shopId}")
     Rails.logger.info("invoiceId #{invoiceId}")
     Rails.logger.info("customerNumber #{customerNumber}")
-    Rails.logger.info("MD5 #{MD5}")
+    Rails.logger.info("MD5 #{vMD5}")
     now_date = Time.now
     builder = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') do |xml|
       xml.paymentAvisoResponse(
