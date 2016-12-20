@@ -9,6 +9,7 @@ class StaticPagesController < ApplicationController
   end
 
   def test_payment
+  	@yandex_kassa_scid = ENV["yandex_kassa_scid"].to_s
   end
 
 end
