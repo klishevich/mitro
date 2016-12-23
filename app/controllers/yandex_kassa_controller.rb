@@ -24,7 +24,8 @@ class YandexKassaController < ApplicationController
     Rails.logger.info("MD5 #{vMD5}")
     # !!! make md5 check
     # MD5(action;MY_ORDER_SUM;orderSumCurrencyPaycash;orderSumBankPaycash;shopId;invoiceId;customerNumber;shopPassword);
-    now_date = Time.now
+    now_date = DateTime.now
+    # Rails.logger.info("now_date #{now_date}")
     builder = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') do |xml|
       xml.checkOrderResponse(
         'performedDatetime' => now_date,
