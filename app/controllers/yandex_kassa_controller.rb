@@ -1,5 +1,12 @@
 class YandexKassaController < ApplicationController
   skip_before_filter :verify_authenticity_token
+  
+  def order_success
+    @orderSumAmount = params[:orderSumAmount]
+  end
+
+  def order_fail
+  end
 
   # POST
   # action, orderSumAmount, orderSumCurrencyPaycash, orderSumBankPaycash, 
@@ -68,4 +75,5 @@ class YandexKassaController < ApplicationController
     Rails.logger.info("--- YandexKassaController order_payment_aviso end ---")
     render xml: builder.to_xml
   end
+
 end

@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   post '/order_check', to: 'yandex_kassa#order_check'
   post '/order_payment_aviso', to: 'yandex_kassa#order_payment_aviso'
   get '/order_fail', to: 'yandex_kassa#order_fail'
+  get '/order_success', to: 'yandex_kassa#order_success'
 
 end
