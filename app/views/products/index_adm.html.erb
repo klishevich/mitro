@@ -10,6 +10,7 @@
         <tr>
           <th></th>
           <th><%= Product.human_attribute_name(:name) %></th>
+          <th><%= Product.human_attribute_name(:category_id) %></th>
           <th><%= Product.human_attribute_name(:price) %></th>
           <th><%= Product.human_attribute_name(:is_delivery) %></th>
           <th><%= Product.human_attribute_name(:updated_at) %></th>
@@ -24,6 +25,7 @@
               <div class="btn-cont"><%= link_to "Просмотр", product_path(prod), class: "btn-sm btn-primary" %></div>
               <div class="btn-cont"><%= link_to "Удалить", product_path(prod), class: "btn-sm btn-danger",method: "delete" %></div>
             <td><%= prod.name %></td>
+            <td><%= prod.category&.name %></td>
             <td><%= prod.price %></td>
             <td><%= prod.is_delivery %></td>
             <td><%= prod.updated_at.strftime('%d.%m.%Y %T') %></td>

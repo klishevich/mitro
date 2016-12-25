@@ -13,9 +13,9 @@ class ProductsController < ApplicationController
   end
   
   def index_delivery
+    @categories = Category.all.order(:order)
   	@products = Product.where("is_delivery = 't'").order(:id)
     @menu_name = t(:menu_name_delivery)
-    render 'index_filtered'
   end
 
   def index_foodtrack
@@ -79,6 +79,6 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :description, :price, :volume, :is_delivery, :is_foodtrack, 
-      :img, :img_cache, :remove_img, :is_main)
+      :img, :img_cache, :remove_img, :is_main, :category_id)
   end  
 end

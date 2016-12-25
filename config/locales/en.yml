@@ -219,6 +219,7 @@ en:
         updated_at: "Дата изменения"
         img: "Изображение"
         is_main: "Основное меню"
+        category_id: "Категория"
       user:
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
