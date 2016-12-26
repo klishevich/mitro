@@ -12,15 +12,18 @@ Category.delete_all
 Category.create([
     { 
         name: "Кофе", 
-        order: 1
+        code: "coffee",
+        order: 1,
     },
     { 
-        name: "Бургеры", 
-        order: 2
+        name: "Бургеры",
+        code: "burger", 
+        order: 2,
     },
     { 
-        name: "Картошка", 
-        order: 3
+        name: "Картошка",
+        code: "potato", 
+        order: 3,
     },
 ])
 

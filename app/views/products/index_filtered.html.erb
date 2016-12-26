@@ -1,23 +1,21 @@
-<div class='container'>
-	<main class="page-content">
-		<section class="section-md-top-20 position-r bg-images-5">
-			<div class="shell text-center text-md-left">
-				<h3><%= @menu_name %></h3>
-				<div class="range">
-					<% @products.each_with_index do |prod, index| %>
-						<div class="cell-md-3 cell-xs-6 product">
-							<div class="thumbnail">
-								<%= image_tag prod.img.url %>
-								<h5><a href="#"><%= prod.name %></a></h5>
-								<h5><small><%= prod.description %></small></h5>
-							</div>
+<main class="page-content">
+	<section class="section-md-top-20 position-r bg-images-5 bg-images-main">
+		<div class="shell text-center text-md-left">
+			<h3><%= @menu_name %></h3>
+			<div class="range">
+				<% @products.each_with_index do |prod, index| %>
+					<div class="cell-md-3 cell-xs-6 product">
+						<div class="thumbnail">
+							<%= image_tag prod.img.url %>
+							<h5><a href="#"><%= prod.name %></a></h5>
+							<h5><small><%= prod.description %></small></h5>
 						</div>
-						<% if (index%3 == 2) %>
-							<div class="cell-md-1 display-n"></div>
-						<% end %>
+					</div>
+					<% if (index%3 == 2) %>
+						<div class="cell-md-1 display-n"></div>
 					<% end %>
-				</div>
+				<% end %>
 			</div>
-		</section>
-	</main>
-</div>
+		</div>
+	</section>
+</main>

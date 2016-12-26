@@ -14,4 +14,9 @@ module ApplicationHelper
 	  end
 	end
   end
+
+  def category_image_tag(category_code)
+  	cat_img = 'category/' + category_code + '.jpg'
+  	return image_tag cat_img
+  end
 end
