@@ -19,4 +19,9 @@ module ApplicationHelper
   	cat_img = 'category/' + category_code + '.jpg'
   	return image_tag cat_img
   end
+
+  def deilvery_products_by_category_link_to(link_text, category_id)
+  	link_url = delivery_products_path + '?category_id=' + category_id.to_s
+  	return link_to link_text, link_url
+  end
 end

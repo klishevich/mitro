@@ -11,17 +11,22 @@ class ProductsController < ApplicationController
     @menu_name = t(:menu_name_main)
     render 'index_filtered'
   end
-  
-  def index_delivery
-    @categories = Category.all.order(:order)
-  	@products = Product.where("is_delivery = 't'").order(:id)
-    @menu_name = t(:menu_name_delivery)
-  end
 
   def index_foodtrack
   	@products = Product.where("is_foodtrack = 't'").order(:id)
     @menu_name = t(:menu_name_foodtrack)
     render 'index_filtered'
+  end
+
+  def index_delivery
+    all_categories = Category.all.order(:order)
+    @categories = all_categories.select { |cat| cat if cat.products.count > 0 }
+  end
+
+  def index_delivery_products
+    category_id = params[:category_id]
+    @category = Category.where("id = #{category_id}").first
+    @products = Product.where("is_foodtrack = 't' and category_id = #{category_id}").order(:id)
   end
 
   def show

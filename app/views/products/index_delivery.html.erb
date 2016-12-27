@@ -6,8 +6,8 @@
         <% @categories.each_with_index do |category, index| %>
         <div class="cell-md-3 cell-xs-6 category">
           <div class="thumbnail">
-            <a href="#"><%= category_image_tag category.code %></a>
-            <h5><a href="#"><%= category.name %></a></h5>
+            <%= deilvery_products_by_category_link_to category_image_tag(category.code), category.id %>
+            <h5><%= deilvery_products_by_category_link_to category.name, category.id %></h5>
           </div>
         </div>
         <% if (index%3 == 2) %>

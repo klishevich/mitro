@@ -8,8 +8,9 @@ Rails.application.routes.draw do
 
   resources :products
   get '/main', to: 'products#index_main'
-  get '/delivery', to: 'products#index_delivery'
   get '/foodtrack', to: 'products#index_foodtrack'
+  get '/delivery', to: 'products#index_delivery'
+  get '/delivery_products', to: 'products#index_delivery_products'
   get '/products_index_adm', to: 'products#index_adm'
 
   resources :poster_clients, only: [:new, :create, :edit, :update]
