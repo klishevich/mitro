@@ -1,0 +1,12 @@
+<div class="thumbnail">
+  <%= image_tag product.img.url %>
+  <h5><a href="#"><%= product.name %></a></h5>
+  <h5><small><%= product.description %></small></h5>
+  <%= simple_form_for order_item, remote: true do |f| %>
+  <%= f.hidden_field :product_id, value: product.id %>
+  <%= f.input :quantity, label: false, input_html: {value: '1'} %>
+  <div class="form-group order_item_button">
+    <%= f.button :submit, value: "+", data: { disable_with: "+" }, class: "btn btn-primary" %>
+  </div>
+  <% end %>
+</div>

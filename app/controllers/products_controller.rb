@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
     category_id = params[:category_id]
     @category = Category.where("id = #{category_id}").first
     @products = Product.where("is_foodtrack = 't' and category_id = #{category_id}").order(:id)
+    @order_item = current_order.order_items.new
   end
 
   def show

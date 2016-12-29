@@ -26,4 +26,8 @@ Rails.application.routes.draw do
   get '/order_fail', to: 'yandex_kassa#order_fail'
   get '/order_success', to: 'yandex_kassa#order_success'
 
+  # Shopping Cart
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
+
 end
