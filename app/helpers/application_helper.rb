@@ -24,4 +24,8 @@ module ApplicationHelper
   	link_url = delivery_products_path + '?category_id=' + category_id.to_s
   	return link_to link_text, link_url
   end
+
+  def html_checked_symbol
+    return raw("&#10004;")
+  end
 end

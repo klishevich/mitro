@@ -1,0 +1,32 @@
+<div class="cart_container">
+	<h3>Ваш заказ</h3>
+	<div class="delivery_link"><a href="/delivery">Вернуться в каталог</a></div>
+	<% if @order.order_items.count == 0 %>
+		<div>Вы ничего не выбрали.</div>
+	<% else %>
+		<div class="shopping-cart">
+  			<%= render "shopping_cart" %>
+		</div>
+		<%= simple_form_for(@order) do |f| %>
+		<div class="oformlenie">Информация о клиенте</div>
+		<div class=""
+		<div class="row">
+			<div class="col-md-6">
+				<%= f.input :person_name %>
+				<%= f.input :phone %>
+			</div>
+			<div class="col-md-6">
+				<%= f.input :email %>
+				<%= f.input :comment, input_html: { rows: 1 } %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<%= f.submit "Оформить заказ", disabled: true, class: "btn btn-primary"%>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	<% end %>
+</div>

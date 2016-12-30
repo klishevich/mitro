@@ -27,7 +27,9 @@ Rails.application.routes.draw do
   get '/order_success', to: 'yandex_kassa#order_success'
 
   # Shopping Cart
-  resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
+  get '/cart', to: 'orders#cart'
+  get '/order_placed', to: 'orders#order_placed'
+  resources :orders, only: [:update, :index, :show ]
 
 end
