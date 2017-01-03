@@ -262,4 +262,6 @@ en:
   update_clients_bonus_started: "Обновление бонусов по клиентам запущено"
   default_country: "Россия"
   default_city: "Москва"
+  order_saved_successfuly: "Заказ успешно размещен"
+
   
