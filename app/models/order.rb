@@ -8,6 +8,14 @@ class Order < ApplicationRecord
 		self.order_status_id = 2
 	end
 
+	def calc_total_sum
+		sum = 0
+		self.order_items.each do |item|
+			sum += item.quantity * item.product.price
+		end
+		self.total_sum = sum
+	end
+
 	private
 	def set_order_status
 		self.order_status_id = 1

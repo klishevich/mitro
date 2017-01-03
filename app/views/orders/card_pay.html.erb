@@ -1,0 +1,30 @@
+<div class="card_pay">
+	<h3>Оплата заказа через Яндекс.Кассу</h3>
+	<div class="card_pay_body">
+		<div class="form-group">
+			<label class="control-label required" for="id_person_name">
+				ФИО
+			</label>
+			<input class="form-control required" disabled="true" value="<%= @order.person_name %>" name="sum" id="id_person_name">
+		</div>
+		<form action="https://demomoney.yandex.ru/eshop.xml" method="POST">
+		<input name="shopId" value="88596" type="hidden">
+		<input name="scid" value="<%= @yandex_kassa_scid %>" type="hidden">
+		<div class="form-group">
+			<label class="control-label required" for="id_customerNumber">
+				Номер заказа
+			</label>
+			<input class="form-control required" readonly value="<%= @order.id %>" name="customerNumber" id="id_customerNumber">
+		</div>
+		<div class="form-group">
+			<label class="control-label required" for="id_sum">
+				Сумма заказа
+			</label>
+			<input class="form-control required" readonly value="<%= @order.total_sum %>" name="sum" id="id_sum">
+		</div>
+		<div class="form-actions">
+			<input type="submit" value="Оплатить" class="btn btn-primary">
+		</div>
+		</form>
+	</div>
+</div>

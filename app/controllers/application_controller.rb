@@ -14,9 +14,10 @@ class ApplicationController < ActionController::Base
     session1 = session[:order_id]
   	Rails.logger.info("current_order session #{session.to_json}")
   	if !session[:order_id].nil?
-  		Order.find(session[:order_id])
+  		res = Order.find_by_id(session[:order_id])
+      return res ? res : Order.new 
   	else
-  		Order.new
+  		return Order.new
   	end
   end
 end

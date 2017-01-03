@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   resources :order_items, only: [:create, :update, :destroy]
   get '/cart', to: 'orders#cart'
   get '/order_placed', to: 'orders#order_placed'
+  # get '/card_pay', to: 'orders#card_pay'
   resources :orders, only: [:update, :index, :show ]
+  get "card_pay/:id", :controller => "orders", :action => "card_pay"
 
 end

@@ -9,19 +9,25 @@
 		</div>
 		<%= simple_form_for(@order) do |f| %>
 		<div class="oformlenie">Информация о клиенте</div>
-		<div class=""
 		<div class="row">
 			<div class="col-md-6">
 				<%= f.input :person_name %>
-				<%= f.input :phone %>
 			</div>
 			<div class="col-md-6">
+				<%= f.input :phone %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
 				<%= f.input :email %>
+			</div>
+			<div class="col-md-6">
 				<%= f.input :comment, input_html: { rows: 1 } %>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
+				<%= f.input :is_card_pay %>
 				<div class="form-group">
 					<%= f.submit "Оформить заказ", class: "btn btn-primary"%>
 				</div>

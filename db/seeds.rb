@@ -6,33 +6,40 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts 'Delete and Create PorderStatuses'
+puts 'Delete OrderItems'
+OrderItem.delete_all
+
+puts 'Delete Orders'
+Order.delete_all
+
+puts 'Delete and Create OrderStatuses'
 OrderStatus.delete_all
 OrderStatus.create! id: 1, name: "В процессе"
 OrderStatus.create! id: 2, name: "Размещен"
 OrderStatus.create! id: 3, name: "Завершен"
 OrderStatus.create! id: 4, name: "Отменен"
+OrderStatus.create! id: 5, name: "Оплачен"
 
-puts 'Delete Categories'
-puts 'Create Categories'
-Category.delete_all
-Category.create([
-    { 
-        name: "Кофе", 
-        code: "coffee",
-        order: 1,
-    },
-    { 
-        name: "Бургеры",
-        code: "burger", 
-        order: 2,
-    },
-    { 
-        name: "Картошка",
-        code: "potato", 
-        order: 3,
-    },
-])
+# puts 'Delete Categories'
+# puts 'Create Categories'
+# Category.delete_all
+# Category.create([
+#     { 
+#         name: "Кофе", 
+#         code: "coffee",
+#         order: 1,
+#     },
+#     { 
+#         name: "Бургеры",
+#         code: "burger", 
+#         order: 2,
+#     },
+#     { 
+#         name: "Картошка",
+#         code: "potato", 
+#         order: 3,
+#     },
+# ])
 
 # puts 'Create Products'
 # Product.create([

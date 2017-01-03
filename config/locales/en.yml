@@ -243,6 +243,7 @@ en:
         phone: "Телефон"
         email: "Email"
         comment: "Комментарий"
+        is_card_pay: "Оплатить банковской картой"
       order_item:
         quantity: "Количество"
   page_saved_successfuly: "Страница сохранена"
@@ -263,5 +264,5 @@ en:
   default_country: "Россия"
   default_city: "Москва"
   order_saved_successfuly: "Заказ успешно размещен"
-
+  order_not_found: "Заказ не найден"
   
