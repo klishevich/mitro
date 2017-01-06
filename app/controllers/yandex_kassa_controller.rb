@@ -98,8 +98,7 @@ class YandexKassaController < ApplicationController
       Rails.logger.info("md5_server #{md5_server}")
       if md5_client != md5_server
         # code="1" MD5 does not match
-        # code = "1" MD5 CHECK IS SWITCHED OFF
-        code = "0"
+        code = "1"
       end
     end
     Rails.logger.info("code #{code}")
