@@ -11,7 +11,7 @@ class YandexKassaController < ApplicationController
   # POST
   def order_check
     Rails.logger.info("----- YandexKassaController order_check begin -----")
-    code = calc_fault_code(params)
+    code = calc_fault_code(params, 'checkOrder')
     now_date = DateTime.now
     builder = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') do |xml|
       xml.checkOrderResponse(
@@ -27,7 +27,7 @@ class YandexKassaController < ApplicationController
   # POST
   def order_payment_aviso
     Rails.logger.info("----- YandexKassaController order_payment_aviso begin -----")
-    code = calc_fault_code(params)
+    code = calc_fault_code(params, 'paymentAviso')
     if code == "0"
       order_id = params[:customerNumber].to_i
       order = Order.find_by_id(order_id)
@@ -47,11 +47,11 @@ class YandexKassaController < ApplicationController
   end
 
   private
-  def calc_fault_code(params)
+  def calc_fault_code(params, actionName)
     # code ошибки
     code = ""
     Rails.logger.info("--- YandexKassaController serve_callback begin ---")
-    action = params[:action]
+    action = actionName
     orderSumAmount = params[:orderSumAmount]
     orderSumCurrencyPaycash = params[:orderSumCurrencyPaycash]
     orderSumBankPaycash = params[:orderSumBankPaycash]
