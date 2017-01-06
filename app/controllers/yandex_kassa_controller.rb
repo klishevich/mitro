@@ -83,7 +83,7 @@ class YandexKassaController < ApplicationController
       order = Order.find_by_id(customerNumber.to_i)
       if order 
         Rails.logger.info("order #{order.to_json}")
-        orderSumAmount_server = order.total_sum.to_s
+        orderSumAmount_server = '%.2f' % order.total_sum
         Rails.logger.info("orderSumAmount_server #{orderSumAmount_server}")
       else
         # code = "100" order not found
