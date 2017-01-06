@@ -91,14 +91,11 @@ class YandexKassaController < ApplicationController
     end
 
     if code == "0"
-      md5_server = Digest::MD5.new
       shopPassword = ENV["yandex_kassa_shop_password"].to_s
       md5_server_string = action + ";" + orderSumAmount_server + ";" + orderSumCurrencyPaycash + ";" + orderSumBankPaycash + ";" + shopId + ";" + invoiceId + ";" + customerNumber + ";" + shopPassword
       Rails.logger.info("md5_server_string #{md5_server_string}")
-      md5_server << md5_server_string
-      # md5_server << action << orderSumAmount_server << orderSumCurrencyPaycash << orderSumBankPaycash << shopId << invoiceId << customerNumber << shopPassword
-      md5_server_up = md5_server.to_s.upcase
-      Rails.logger.info("md5_server_up #{md5_server_up}")
+      md5_server = Digest::MD5.hexdigest(md5_server_string).upcase
+      Rails.logger.info("md5_server #{md5_server}")
       if md5_client != md5_server
         # code="1" MD5 does not match
         # code = "1" MD5 CHECK IS SWITCHED OFF
