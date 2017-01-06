@@ -10,7 +10,7 @@ class YandexKassaController < ApplicationController
 
   # POST
   def order_check
-    Rails.logger.info("--- YandexKassaController order_check begin ---")
+    Rails.logger.info("----- YandexKassaController order_check begin -----")
     code = calc_fault_code(params)
     now_date = DateTime.now
     builder = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') do |xml|
@@ -20,13 +20,13 @@ class YandexKassaController < ApplicationController
         'invoiceId' => params[:invoiceId],
         'shopId' => params[:shopId])
     end
-    Rails.logger.info("--- YandexKassaController order_check end ---")
+    Rails.logger.info("----- YandexKassaController order_check end -----")
     render xml: builder.to_xml
   end
 
   # POST
   def order_payment_aviso
-    Rails.logger.info("--- YandexKassaController order_payment_aviso begin ---")
+    Rails.logger.info("----- YandexKassaController order_payment_aviso begin -----")
     code = calc_fault_code(params)
     if code == "0"
       order_id = params[:customerNumber].to_i
@@ -42,7 +42,7 @@ class YandexKassaController < ApplicationController
         'invoiceId' => params[:invoiceId],
         'shopId' => params[:shopId])
     end
-    Rails.logger.info("--- YandexKassaController order_payment_aviso end ---")
+    Rails.logger.info("----- YandexKassaController order_payment_aviso end -----")
     render xml: builder.to_xml
   end
 
@@ -94,6 +94,7 @@ class YandexKassaController < ApplicationController
       md5_server = Digest::MD5.new
       shopPassword = ENV["yandex_kassa_shop_password"].to_s
       md5_server_string = action + ";" + orderSumAmount_server + ";" + orderSumCurrencyPaycash + ";" + orderSumBankPaycash + ";" + shopId + ";" + invoiceId + ";" + customerNumber + ";" + shopPassword
+      Rails.logger.info("md5_server_string #{md5_server_string}")
       md5_server << md5_server_string
       # md5_server << action << orderSumAmount_server << orderSumCurrencyPaycash << orderSumBankPaycash << shopId << invoiceId << customerNumber << shopPassword
       md5_server_up = md5_server.to_s.upcase
