@@ -264,5 +264,6 @@ en:
   default_country: "Россия"
   default_city: "Москва"
   order_saved_successfuly: "Заказ успешно размещен"
+  order_saved_successfuly_pay: "Заказ размещен. Для оплаты нажмите кнопку Оплатить"
   order_not_found: "Заказ не найден"
   

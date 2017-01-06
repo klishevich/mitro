@@ -1,6 +1,6 @@
 <div class="col-xs-12 col-md-6 cart_item">
   <div class="well">
-    <h4><%= product.name %></h4>
+    <h4><%= product.name %> - <%= product.price %> руб.</h4>
     <%= image_tag product.img.url %>
     <%= simple_form_for order_item, remote: true do |f| %>
     <%= f.input :quantity, label: false, value: order_item.quantity.to_i %>

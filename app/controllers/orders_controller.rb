@@ -22,11 +22,12 @@ class OrdersController < ApplicationController
 			@order.user_id = current_user.id
 		end
 		if @order.update_attributes(order_params)
-			flash[:notice] = t(:order_saved_successfuly)
 			session[:order_id] = nil
 			if @order.is_card_pay
 				redirect_to "/card_pay/#{@order.id}"
+				flash[:notice] = t(:order_saved_successfuly_pay)
 			else
+				flash[:notice] = t(:order_saved_successfuly)
 				redirect_to '/order_placed'
 			end
 		else

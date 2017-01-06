@@ -8,6 +8,10 @@ class Order < ApplicationRecord
 		self.order_status_id = 2
 	end
 
+	def order_payed_yandex_kassa
+		self.order_status_id = 5
+	end
+
 	def calc_total_sum
 		sum = 0
 		self.order_items.each do |item|
