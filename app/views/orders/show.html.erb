@@ -14,6 +14,8 @@
 	<div><%= OrderStatus.human_attribute_name("name") %>: <b><%=@order.order_status.name %></b></div>
 	<div><%= Order.human_attribute_name("is_card_pay") %>: <b><%= @order.is_card_pay ? "Да" : "Нет" %></b></div>
 	<div><%= Order.human_attribute_name("total_sum") %>, руб: <b><%= @order.total_sum %></b></div>
+	<div><%= Order.human_attribute_name("comment") %>:</div>
+	<div><b><%= @order.comment %></b></div>
 	<br/>
 	<h4>Список товаров в заказе:</h4>
 	<table class="table table-condensed" style="table-layout : fixed" width="100%">
