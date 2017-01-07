@@ -18,7 +18,7 @@ OrderStatus.create! id: 1, name: "В процессе"
 OrderStatus.create! id: 2, name: "Размещен"
 OrderStatus.create! id: 3, name: "Завершен"
 OrderStatus.create! id: 4, name: "Отменен"
-OrderStatus.create! id: 5, name: "Оплачен через Яндекс.Кассу"
+OrderStatus.create! id: 5, name: "Оплачен Я.К."
 
 # puts 'Delete Categories'
 # puts 'Create Categories'

@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-	before_action :authenticate, only: [:show]
+	before_action :authenticate_admin, only: [:index_adm, :show]
 	def cart
 		@order = current_order
 		@order_items = @order.order_items
@@ -35,10 +35,6 @@ class OrdersController < ApplicationController
 		end
 	end
 
-	def show
-		@order = Order.find(params[:id])
-	end
-
 	def order_placed
 	end
 
@@ -56,5 +52,15 @@ class OrdersController < ApplicationController
 
 	def order_params
     	params.require(:order).permit(:person_name, :phone, :email, :comment, :user_id, :is_card_pay)
+  	end
+
+  	# Admin Pages
+  	def show
+		@order = Order.find(params[:id])
+	end
+
+  	def index_adm
+  		# @orders = Order.where('order_status_id = 2').last(50).reverse
+  		@orders = Order.all.last(50).reverse
   	end
 end

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :authenticate_admin, only: [:index_adm, :new, :create, :edit, :update, :destroy]
+  before_action :authenticate_admin, only: [:index_adm, :new, :create, :edit, :update, :destroy]
 
   # PUBLIC PAGES
   def index

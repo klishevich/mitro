@@ -239,13 +239,19 @@ en:
         created_at: "Дата создания заявки"
         updated_at: "Дата изменения заявки"
       order:
+        id: "Номер заказа"
         person_name: "Имя"
         phone: "Телефон"
         email: "Email"
         comment: "Комментарий"
-        is_card_pay: "Оплатить банковской картой"
+        is_card_pay: "Оплата картой"
+        created_at: "Дата создания"
+        updated_at: "Дата изменения"
+        total_sum: "Сумма заказа"
       order_item:
         quantity: "Количество"
+      order_status:
+        name: "Статус заказа"
   page_saved_successfuly: "Страница сохранена"
   product_saved_successfuly: "Информация по товару сохранена"
   product_deleted_successfuly: "Информация по товару удалена"

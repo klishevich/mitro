@@ -33,5 +33,6 @@ Rails.application.routes.draw do
   # get '/card_pay', to: 'orders#card_pay'
   resources :orders, only: [:update, :index, :show ]
   get "card_pay/:id", :controller => "orders", :action => "card_pay"
+  get '/orders_index_adm', to: 'orders#index_adm'
 
 end

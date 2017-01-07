@@ -1,0 +1,33 @@
+<% provide(:breadcrumb, "Админка / Заказы") %>
+<h2>Заказы</h2>
+<div class="form-group">
+	<a class="btn btn-default" href="/admin">В админку</a>
+</div>
+<table class="table table-condensed" style="table-layout : fixed" width="100%">
+	<thead>
+		<tr>
+			<th width="7%"><%= Order.human_attribute_name("id") %></th>
+			<th width="13%"><%= Order.human_attribute_name("created_at") %></th>
+			<th width="20%"><%= Order.human_attribute_name("person_name") %></th>
+			<th width="20%">Контакты</th>
+			<th width="20%"><%= OrderStatus.human_attribute_name("name") %></th>
+			<th width="20%"><%= Order.human_attribute_name("total_sum") %>, руб</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @orders.each do |order| %>
+		<tr>
+			<td><%= link_to order.id, order %></td>
+			<td><%= order.created_at.strftime('%d.%m.%Y %T')  %></td>
+			<td><%= order.person_name %></td>
+			<td><%= order.phone %> <br/> <%= order.email %></td>
+			<td><%= order.order_status.name %>
+				<% if order.is_card_pay %>
+					<br/>(оплата картой)
+				<% end %>
+			</td>
+			<td><%= order.total_sum %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

@@ -1,6 +1,5 @@
 class PosterClientsController < ApplicationController
-  # before_filter :authenticate_admin, only: [:index_adm, :new, :create, :edit, :update]
-
+  
   def poster_info
   	@user = current_user
     @poster_client = @user&.poster_client
