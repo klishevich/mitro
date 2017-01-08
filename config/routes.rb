@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'static_pages#home'
   get '/admin', to: 'static_pages#admin'
   get '/test_payment', to: 'static_pages#test_payment'
+  get '/news', to: 'static_pages#news'
 
   resources :products
   get '/main', to: 'products#index_main'

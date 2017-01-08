@@ -1,6 +1,6 @@
 <div class="thumbnail">
   <%= image_tag product.img.url %>
-  <h5><a href="#"><%= product.name %></a> - <%= product.price %> руб.</h5>
+  <h5><%= product.name %> - <%= product.price %> руб.</h5>
   <h5><small><%= product.description %></small></h5>
   <%= simple_form_for order_item, remote: true do |f| %>
   <%= f.hidden_field :product_id, value: product.id %>
