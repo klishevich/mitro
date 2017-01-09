@@ -1,0 +1,72 @@
+<% provide(:breadcrumb, "Админка / Просмотр пользователя") %>
+<div>
+	<h2>Просмотр пользователя</h2>
+	<div class="form-group">
+		<a class="btn btn-default" href="/admin">В админку</a>
+		<%= link_to "Список пользователей", '/users_index_adm', class: "btn btn-default" %>
+	</div>
+	<div><%= User.human_attribute_name("id") %>: 
+		<b><%=@user.id %></b>
+	</div>
+	<div><%= User.human_attribute_name("created_at") %>: 
+		<b><%= @user.created_at.strftime('%d.%m.%Y %T') %></b>
+	</div>
+	<div><%= User.human_attribute_name("email") %>: 
+		<b><%= @user.email %></b>
+	</div>
+	<div><%= User.human_attribute_name("is_admin") %>: 
+		<b><%= @user.is_admin ? "Да" : "Нет" %></b>
+	</div>
+	<div><%= User.human_attribute_name("last_sign_in_at") %>: 
+		<b><%= @user.last_sign_in_at.strftime('%d.%m.%Y %T') %></b>
+	</div>
+	<div>Клиент постера: 
+		<b><%= @user.poster_client ? "Да" : "Нет" %></b>
+	</div>
+	<br/>
+	<h4>Информация по клиенту Постера</h4>
+	<div><%= PosterClient.human_attribute_name("client_name") %>: 
+		<b><%= @user.poster_client&.client_name %></b>
+	</div>
+	<div><%= PosterClient.human_attribute_name("is_active") %>: 
+		<b><%= @user.poster_client&.is_active %></b>
+	</div>
+	<div><%= PosterClient.human_attribute_name("poster_client_id") %>: 
+		<b><%= @user.poster_client&.poster_client_id %></b>
+	</div>
+	<div><%= PosterClient.human_attribute_name("client_sex") %>: 
+		<b><%= @user.poster_client&.client_sex %></b>
+	</div>
+	<div><%= PosterClient.human_attribute_name("phone") %>: 
+		<b><%= @user.poster_client&.phone %></b>
+	</div>
+	<div><%= PosterClient.human_attribute_name("card_number") %>: 
+		<b><%= @user.poster_client&.card_number %></b>
+	</div>
+<!-- 	<div><%= PosterClient.human_attribute_name("client_groups_id_client") %>: 
+		<b><%= @user.poster_client&.client_groups_id_client %></b>
+	</div> -->
+	<div><%= PosterClient.human_attribute_name("country") %>: 
+		<b><%= @user.poster_client&.country %></b>
+	</div>
+	<div><%= PosterClient.human_attribute_name("city") %>: 
+		<b><%= @user.poster_client&.city %></b>
+	</div>
+	<div><%= PosterClient.human_attribute_name("birthday") %>: 
+		<b><%= @user.poster_client&.birthday&.strftime('%d.%m.%Y') %></b>
+	</div>
+	<div><%= PosterClient.human_attribute_name("created_at") %>: 
+		<b><%= @user.poster_client&.created_at&.strftime('%d.%m.%Y %T') %></b>
+	</div>
+	<div><%= PosterClient.human_attribute_name("updated_at") %>: 
+		<b><%= @user.poster_client&.updated_at&.strftime('%d.%m.%Y %T') %></b>
+	</div>
+	<div><%= PosterClient.human_attribute_name("has_bonus") %>: 
+		<b><%= @user.poster_client&.has_bonus ? "Да" : "Нет" %></b>
+	</div>
+	<div><%= PosterClient.human_attribute_name("bonus_updated_at") %>: 
+		<b><%= @user.poster_client&.bonus_updated_at&.strftime('%d.%m.%Y %T') %></b>
+	</div>
+	<div><%= PosterClient.human_attribute_name("bonus_text") %>:</div> 
+	<div><%= @user.poster_client&.bonus_text %></div>
+</div>

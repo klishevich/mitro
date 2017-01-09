@@ -1,0 +1,29 @@
+<% provide(:breadcrumb, "Админка / Пользователи") %>
+<h2>Пользователи</h2>
+<div class="form-group">
+	<a class="btn btn-default" href="/admin">В админку</a>
+</div>
+<table class="table table-condensed" style="table-layout : fixed" width="100%">
+	<thead>
+		<tr>
+			<th width="7%"><%= User.human_attribute_name("id") %></th>
+			<th width="13%"><%= User.human_attribute_name("created_at") %></th>
+			<th width="20%"><%= User.human_attribute_name("email") %></th>
+			<th width="20%"><%= User.human_attribute_name("is_admin") %></th>
+			<th width="20%">Клиент постера</th>
+			<th width="20%"><%= PosterClient.human_attribute_name("client_name") %></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+		<tr>
+			<td><%= link_to user.id, "/user_adm/#{user.id}" %></td>
+			<td><%= user.created_at.strftime('%d.%m.%Y %T') %></td>
+			<td><%= user.email %></td>
+			<td><%= user.is_admin ? "Да" : "Нет" %></td>
+			<td><%= user.poster_client ? "Да" : "Нет" %></td>
+			<td><%= user.poster_client&.client_name %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

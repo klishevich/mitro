@@ -221,9 +221,13 @@ en:
         is_main: "Основное меню"
         category_id: "Категория"
       user:
+        id: "ID"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
         remember_me: "Запомнить меня"
+        created_at: "Регистрация"
+        is_admin: "Админ"
+        last_sign_in_at: "Последний вход"
       poster_client:
         user_id: "Пользователь"
         is_active: "Карта активирована"
@@ -238,6 +242,8 @@ en:
         birthday: "День рождения"
         created_at: "Дата создания заявки"
         updated_at: "Дата изменения заявки"
+        has_bonus: "Имеется бонус"
+        bonus_updated_at: "Дата обновления бонуса"
       order:
         id: "Номер заказа"
         person_name: "Имя"
