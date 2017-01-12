@@ -30,6 +30,7 @@ class OrdersController < ApplicationController
 				flash[:notice] = t(:order_saved_successfuly)
 				redirect_to '/order_placed'
 			end
+			AdminMailer.new_order(@order).deliver_now
 		else
 			render 'cart'
 		end

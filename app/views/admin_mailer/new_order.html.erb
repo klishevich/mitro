@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Новый заказ на сайте MITROFOOD</h1>
+    <div>Для просмотра заказа перейдите по ссылке - http://mitro.j123.ru/orders/<%= @order.id %></div>
+    <div><%= Order.human_attribute_name("id") %>: <b><%=@order.id %></b></div>
+    <div><%= Order.human_attribute_name("created_at") %>: <b><%=@order.created_at.strftime('%d.%m.%Y %T') %></b></div>
+    <div><%= Order.human_attribute_name("updated_at") %>: <b><%=@order.updated_at.strftime('%d.%m.%Y %T') %></b></div>
+    <div><%= Order.human_attribute_name("person_name") %>: <b><%=@order.person_name %></b></div>
+    <div><%= Order.human_attribute_name("phone") %>: <b><%=@order.phone %></b></div>
+    <div><%= Order.human_attribute_name("email") %>: <b><%=@order.email %></b></div>
+    <div><%= OrderStatus.human_attribute_name("name") %>: <b><%=@order.order_status.name %></b></div>
+    <div><%= Order.human_attribute_name("is_card_pay") %>: <b><%= @order.is_card_pay ? "Да" : "Нет" %></b></div>
+    <div><%= Order.human_attribute_name("total_sum") %>, руб: <b><%= @order.total_sum %></b></div>
+    <div><%= Order.human_attribute_name("comment") %>:</div>
+    <div><b><%= @order.comment %></b></div>
+    <br/>
+    <h4>Список товаров в заказе:</h4>
+    <table class="table table-condensed" style="table-layout : fixed" width="100%">
+      <tr>
+        <th>Название</th>
+        <th>Цена</th>
+        <th>Количество</th>
+      </tr>
+      <% @order.order_items.each do |item| %>
+      <tr>
+        <td><%= item.product.name %></td>
+        <td><%= item.product.price %></td>
+        <td><%= item.quantity %></td>
+      </tr>
+      <% end %>
+    </table>
+  </body>
+</html>
