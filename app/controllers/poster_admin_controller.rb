@@ -2,6 +2,7 @@ class PosterAdminController < ApplicationController
   before_action :authenticate_admin
   
   def index
+    @last_update_date = PosterClient.last&.bonus_updated_at&.strftime('%d.%m.%Y %T')
   end
 
   def update_clients_bonus
