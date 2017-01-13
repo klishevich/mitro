@@ -3,6 +3,7 @@ class PosterAdminController < ApplicationController
   
   def index
     @last_update_date = PosterClient.last&.bonus_updated_at&.strftime('%d.%m.%Y %T')
+    @rinfo = Resque.info
   end
 
   def update_clients_bonus

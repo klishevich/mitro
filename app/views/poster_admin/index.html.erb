@@ -5,7 +5,11 @@
     <a class="btn btn-default" href="/admin">В админку</a>
   </div>
   <h4>Обновить бонусы для всех клиентов</h4>
-  <div>Дата обновления последней записи в таблице poster_clients - <%= @last_update_date %></div>
+  <div><b>Дата обновления последней записи в таблице poster_clients</b>: <br/> <%= @last_update_date %></div>
+  <div><b>Информация об очереди</b>: <br/>
+    <%= @rinfo %>
+  </div>
+  <br/>
   <%= form_tag(update_clients_bonus_path, method: 'post') do %>
     <p><%= submit_tag('Обновить', class: 'btn btn-primary') %></p>
   <% end %>
