@@ -1,5 +1,5 @@
 class PosterIntegration
-  attr_accessor :poster_client_id, :client_info
+  attr_accessor :poster_client_id, :client_info, :poster_products
 
   # def initialize(poster_client_id)
   #   @poster_client_id = poster_client_id
@@ -8,13 +8,13 @@ class PosterIntegration
   # TEST METHOD
   def getWorkshops
     Rails.logger.info("start getWorkshops")
-    url = 'https://busation.joinposter.com/api/menu.getWorkshops?format=json&token=' + token
+    url = account_url + 'menu.getWorkshops?format=json&token=' + token
     Rails.logger.info("url #{url}")
     uri = URI.parse(url).read
   end
 
   def add_client(client_name, client_sex, phone, country, city, email, birthday)
-    my_url = 'https://busation.joinposter.com/api/clients.addClient?format=json&token=' + token
+    my_url = account_url + 'clients.addClient?format=json&token=' + token
     uri = URI(my_url)
     req = Net::HTTP::Post.new(uri)
     req.set_form_data(
@@ -42,8 +42,7 @@ class PosterIntegration
 
   def get_client_info
     Rails.logger.info("start get_client_info")
-    url = 'https://busation.joinposter.com/api/clients.getClientInfo?format=json&token=' + token + 
-      '&client_id=' + @poster_client_id.to_s
+    url = account_url + 'clients.getClientInfo?format=json&token=' + token + '&client_id=' + @poster_client_id.to_s
     Rails.logger.info("url #{url}")
     res = URI.parse(url).read
     @client_info = JSON.parse(res)
@@ -69,10 +68,34 @@ class PosterIntegration
     end
   end
 
+  def get_products
+    Rails.logger.info("start get_products")
+    url = account_url + 'menu.getProducts?format=json&token=' + token
+    Rails.logger.info("url #{url}")
+    res = URI.parse(url).read
+    @poster_products = JSON.parse(res)
+    Rails.logger.info("@poster_products #{@poster_products}")
+  end
+
+  # saving poster_products
+  def persist_products
+    products_arr = poster_products['response']
+    Logger.new('log/resque.log').info("PosterIntegration products_arr.to_s #{products_arr.to_s}")
+    products_arr.each do |prod|
+      product = PosterProduct.new(product_id: prod['product_id'], product_name: prod['product_name'])
+      Logger.new('log/resque.log').info("product #{product.to_json}")
+      product.save!
+    end 
+  end
+
   private
 
   def token
     return ENV["poster_token"].to_s
+  end
+
+  def account_url
+    return 'https://busation.joinposter.com/api/'
   end
 
 end

@@ -4,13 +4,23 @@
   <div class = "header-button">
     <a class="btn btn-default" href="/admin">В админку</a>
   </div>
+  <br/>
+  <h4>Обновить товары из Poster</h4>
+  <div><b>Дата последнего обновления товаров</b>: <br/> <%= @last_products_update_date %></div>
+  <br/>
+  <%= form_tag(update_poster_products_path, method: 'post') do %>
+    <p><%= submit_tag('Обновить товары', class: 'btn btn-primary') %></p>
+  <% end %>
+  <br/>
   <h4>Обновить бонусы для всех клиентов</h4>
-  <div><b>Дата обновления последней записи в таблице poster_clients</b>: <br/> <%= @last_update_date %></div>
-  <div><b>Информация об очереди</b>: <br/>
-    <%= @rinfo %>
-  </div>
+  <div><b>Дата обновления последней записи в таблице poster_clients</b>: <br/> <%= @last_bonus_update_date %></div>
   <br/>
   <%= form_tag(update_clients_bonus_path, method: 'post') do %>
-    <p><%= submit_tag('Обновить', class: 'btn btn-primary') %></p>
+    <p><%= submit_tag('Обновить бонусы', class: 'btn btn-primary') %></p>
   <% end %>
+  <br/>
+  <h4>Информация об очереди</h4>
+  <div>
+    <%= @rinfo %>
+  </div>
 </div>

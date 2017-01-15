@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :poster_admin, only: [:index]
   post '/update_clients_bonus', to: 'poster_admin#update_clients_bonus'
+  post '/update_poster_products', to: 'poster_admin#update_poster_products'
 
   # Yandex.Kassa
   post '/order_check', to: 'yandex_kassa#order_check'

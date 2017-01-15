@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103134832) do
+ActiveRecord::Schema.define(version: 20170115123103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,14 @@ ActiveRecord::Schema.define(version: 20170103134832) do
     t.text     "bonus_text"
     t.datetime "bonus_updated_at",        default: '2000-01-01 00:00:00'
     t.index ["user_id"], name: "index_poster_clients_on_user_id", using: :btree
+  end
+
+  create_table "poster_products", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "product_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["product_id"], name: "index_poster_products_on_product_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|

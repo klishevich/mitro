@@ -1,0 +1,2 @@
+class PosterProduct < ApplicationRecord
+end

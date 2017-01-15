@@ -273,6 +273,7 @@ en:
   menu_name_delivery: "Меню доставка"
   menu_name_foodtrack: "Меню Фудтрак"
   update_clients_bonus_started: "Обновление бонусов по клиентам запущено"
+  update_poster_products_started: "Обновление товаро из Poster запущено"
   default_country: "Россия"
   default_city: "Москва"
   order_saved_successfuly: "Заказ успешно размещен"
