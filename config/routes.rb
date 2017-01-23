@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :poster_clients, only: [:new, :create, :edit, :update]
   get '/poster_info', to: 'poster_clients#poster_info'
   get '/bonus_info', to: 'poster_clients#bonus_info'
+  get '/coupon', to: 'poster_clients#coupon'
 
   resources :poster_admin, only: [:index]
   post '/update_clients_bonus', to: 'poster_admin#update_clients_bonus'

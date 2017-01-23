@@ -1,5 +1,7 @@
 class PosterClientsController < ApplicationController
-  
+  before_action :authenticate_user!
+  layout 'coupon_layout', only: [:coupon]
+
   def poster_info
   	@user = current_user
     @poster_client = @user&.poster_client
@@ -54,6 +56,17 @@ class PosterClientsController < ApplicationController
     else
     	render 'edit'
     end
+  end
+
+  def coupon
+    @user = current_user
+    @poster_client = @user&.poster_client
+    if (@poster_client&.has_bonus?)
+      render 'coupon'
+    else
+      flash[:notice] = t(:no_bonus)
+      redirect_to root_path
+    end 
   end
 
   private

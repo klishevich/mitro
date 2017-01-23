@@ -1,0 +1,15 @@
+<h1>Купон MITROFOOD</h1>
+<div class="coupon_page">
+	<div class="coupon_header">
+		Уважаемый <b><%= @poster_client.client_name %></b> у вас есть купон, на бесплатный товар от MITROFOOD!<br/>
+		Номер карты: <%= @poster_client.card_number %><br/>
+		Дата обновления бонуса: <%= @poster_client.bonus_updated_at&.strftime('%d.%m.%Y %T')%>
+	</div>
+	<div class="coupon_content">
+	  <%= @poster_client.bonus_text %>
+	</div>
+	<div class="coupon_footer">
+	  Для получения товара по купону, распечатайте его и приходите в одно из кафе MITROFOOD.
+	</div>
+</div>
+<div><a href="/">Вернуться на сайт MITROFOOD</a></div>
