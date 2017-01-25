@@ -57,8 +57,19 @@ class PosterIntegration
       Logger.new('log/resque.log').info("PosterIntegration prize_products.to_s #{prize_products.to_s}")
       if prize_products.count > 0
         pc.has_bonus = true
-        pc.bonus_text = 'has bonus, hurray! ' + prize_products.to_s
+        pc.bonus_text = ''
         pc.bonus_updated_at = now_date
+        prize_products.each_with_index do |prize_product, index|
+          separator = (index == 0) ? '': ', '
+          # !!! ONLY FOR ONE BONUS PRODUCT AND 1 PCS
+          first_bonus_product_id = prize_product['conditions']['bonus_products'][0]['id'].to_i
+          first_bonus_product_name = PosterProduct.where(product_id: first_bonus_product_id).first.product_name
+          # Logger.new('log/resque.log').info("PosterIntegration first_bonus_product_name #{first_bonus_product_name}")
+          # first_bonus_product_pcs = prize_product['conditions']['bonus_products_pcs'].to_s
+          text = separator + first_bonus_product_name + ' - 1 ' + I18n.t(:pcs)
+          pc.bonus_text += text
+        end
+        Logger.new('log/resque.log').info("PosterIntegration prize_products.count > 0 pc.bonus_text #{pc.bonus_text}")
       else
         pc.has_bonus = false
         pc.bonus_text = 'no bonus'

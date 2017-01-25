@@ -7,6 +7,9 @@
 	<% if @poster_client.has_bonus %>
 		<p style="color: green;"><b>Имеются бонусы!</b></p>
 		<%= @poster_client.bonus_text %>
+		<div>
+			<%= link_to "Распечатать купон", '/coupon', target: "_blank", class: "btn btn-primary" %>
+		</div>
 	<% else %>
 		<p><b>Пока бонусов нет, покупайте больше и они появяться :)</b></p>
 	<% end %>
