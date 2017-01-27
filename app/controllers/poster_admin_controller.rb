@@ -3,6 +3,7 @@ class PosterAdminController < ApplicationController
   
   def index
     @rinfo = Resque.info
+    @resque_not_working = @rinfo[:workers] == 0 ? true : false
     @last_products_update_date = PosterProduct.last&.created_at&.strftime('%d.%m.%Y %T')
     @last_bonus_update_date = PosterClient.last&.bonus_updated_at&.strftime('%d.%m.%Y %T')
   end
