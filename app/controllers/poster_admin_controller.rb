@@ -19,7 +19,6 @@ class PosterAdminController < ApplicationController
 
   def update_poster_products
     Rails.logger.info("PosterAdminController update_poster_products")
-    PosterProduct.delete_all
     Resque.enqueue(UpdatePosterProducts)
     flash[:notice] = t(:update_poster_products_started)
     redirect_to poster_admin_index_path

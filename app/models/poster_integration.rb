@@ -90,6 +90,8 @@ class PosterIntegration
 
   # saving poster_products
   def persist_products
+    PosterProduct.delete_all
+    Logger.new('log/resque.log').info("PosterIntegration PosterProduct.delete_all")
     products_arr = poster_products['response']
     Logger.new('log/resque.log').info("PosterIntegration products_arr.to_s #{products_arr.to_s}")
     products_arr.each do |prod|
